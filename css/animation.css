@@ -27,7 +27,7 @@ img.bg{
 /* 定义动画 */
 /* 图片从左向右出现 */
 @keyframes slideLeft{
-	from{left: -31.25rem;}
+	from{left: -64rem;}
 	to{left: 0;}
 }
 @-webkit-keyframes slideLeft{
