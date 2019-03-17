@@ -1,0 +1,189 @@
+/* 全屏背景 */
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	height: 100%;
+}
+img.bg{
+	/* 设置全屏填充 */
+	min-height: 100%;
+	min-width: 64rem;
+	width: 100%;
+	/* height: auto !important; */
+	height: 100%;
+	/* 图片定位 */
+	position: fixed;
+	left: 0;
+	z-index: 1;
+}
+@media screen and (max-width:64rem){
+	img.bg{
+		left: 50%;
+		margin-left: -32rem;
+	}
+}
+/* 定义动画 */
+/* 图片从左向右出现 */
+@keyframes slideLeft{
+	from{left: -31.25rem;}
+	to{right: 0;}
+}
+@-webkit-keyframes slideLeft{
+	from{left: -31.25rem;}
+	to{left: 0;}
+}
+/* 图片从底部向顶部出现 */
+@keyframes slideBottom{
+	from{top: 108.75rem;}
+	to{top: 0;}
+}
+/* 图片由小到大放大出现 */
+@keyframes zoomIn{
+	from{transform:scale(0.1) ;}
+	to{transform: none;}
+}
+/* 图片由大到小缩小出现 */
+@keyframes zoomOut{
+	from{transform: scale(2);}
+	to{transform: none;}
+}
+/* 图片旋转出现 */
+@keyframes rotate{
+	from{
+		transform: rotate(-360deg) scale(0.1);
+	}
+	to{transform: none;}
+}
+/* 修饰小图片列表*/
+.slider{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	z-index: 999;
+	bottom: 6.25rem;
+}
+.slider li{
+	display: inline-block;
+	/* width: 10.625rem; */
+	width: 18%;
+	height: 8.125rem;
+	margin-right: 0.8%;
+}
+.slider a {
+	display: inline-block;
+	width: 10.625rem;
+	padding-top: 70px;
+	padding-bottom: 1.25rem;
+	position: relative;
+	cursor: pointer;
+	border: 2px solid #fff;
+	border-radius: 0.3125rem;
+	vertical-align: top;
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.375rem;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.8),
+				 -2px -2px 1px rgba(0,0,0,0.3),
+				 -3px -3px 1px rgba(0,0,0,0.3),
+}
+.slider li:nth-child(1) a{
+	background-color: #02646e;
+}
+.slider li:nth-child(2) a{
+	background-color: #eb0837;
+}
+.slider li:nth-child(3) a{
+	background-color: #67b374;
+}
+.slider li:nth-child(4) a{
+	background-color: #e6674a;
+}
+.slider li:nth-child(5) a{
+	background-color: #e61061;
+}
+.slider a::after{
+	content: "";
+	display: block;
+	height: 7.5rem;
+	width: 7.5rem;
+	border: 0.3125rem solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	margin-left: -4rem;
+	z-index: 999;
+	top: -5rem;
+}
+.slider li:nth-child(1) a::after{
+	background: url(../img/s1.jpg) no-repeat center;
+}
+.slider li:nth-child(2) a::after{
+	background: url(../img/s2.jpg) no-repeat center;
+}
+.slider li:nth-child(3) a::after{
+	background: url(../img/s3.jpg) no-repeat center;
+}
+.slider li:nth-child(4) a::after{
+	background: url(../img/s4.jpg) no-repeat center;
+}
+.slider li:nth-child(5) a::after{
+	background: url(../img/s5.jpg) no-repeat center;
+}
+.slider a::before{
+	content: "";
+	display: block;
+	height: 7.5rem;
+	width: 7.5rem;
+	border: 0.3125rem solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	margin-left: -4rem;
+	z-index: 999;
+	top: -5rem;
+	background: rgba(0,0,0,0.3);
+}
+.slider a:hover::before{
+	opacity: 0;
+}
+.slideLeft:target{
+	z-index: 100;
+	animation-name: slideLeft;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+.slideBottom:target{
+	z-index: 100;
+	animation-name: slideBottom;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+.zoomIn:target{
+	z-index: 100;
+	animation-name: zoomIn;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+.zoomOut:target{
+	z-index: 100;
+	animation-name: zoomOut;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+.rotate:target{
+	z-index: 100;
+	animation-name: rotate;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+@keyframes notTarget{
+	from{z-index: 75;}
+	to{z-index: 75;}
+}
+.bg:not(:target){
+	animation-name: notTarget;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
