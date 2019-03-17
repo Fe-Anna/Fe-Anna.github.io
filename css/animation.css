@@ -28,7 +28,7 @@ img.bg{
 /* 图片从左向右出现 */
 @keyframes slideLeft{
 	from{left: -31.25rem;}
-	to{right: 0;}
+	to{left: 0;}
 }
 @-webkit-keyframes slideLeft{
 	from{left: -31.25rem;}
